@@ -1,7 +1,6 @@
 const Cell = () =>{
-
     return(
-        <p> cell</p>
+        <input/>
     )
 }
 

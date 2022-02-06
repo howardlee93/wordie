@@ -10,7 +10,7 @@ const main = {
     borderStyle: 'solid',
     display: 'flex',
     flexDirection: 'row',
-    margin: '1px'
+    margin: '5px'
 }
 
 const Grid =() =>{
@@ -18,7 +18,7 @@ const Grid =() =>{
     const createRows =()=> {
         let rows =[];
         for (let i = 0; i < 5; i++){
-            rows.push(<Row/>)
+            rows.push(<Row key={i}/>)
         }
         return rows;
     };

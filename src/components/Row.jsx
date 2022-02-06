@@ -2,9 +2,11 @@ import Cell from './Cell';
 
 
 
-const cell ={
-    margin: '5px'
-}
+const cell = {
+    margin: '10px'
+};
+
+
 const Row = () =>{
     const cellRows = () =>{
         let row = [];
