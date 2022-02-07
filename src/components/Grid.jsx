@@ -25,7 +25,8 @@ const Grid =() =>{
 
     return(
         <div style={main}>
-            {createRows()}
+            {/* {createRows()} */}
+            <Row/>
         </div>
     )
     

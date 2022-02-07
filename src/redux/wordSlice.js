@@ -9,15 +9,15 @@ export const wordSlice =createSlice({
         correct: false
     },
     reducers:{
-        addLetter(state, action){
-            state.word + action.payload.word;
+        addLetter (state, action) {
+            state.word += action.payload.toString();
         },
         removeLetter(state, action){
-            state.word - action.payload.word;
+           state.word -= action.payload.word;
 
         },
         compareWord(state){
-            return( state.word === state.answer);
+            state.correct = state.word === state.answer;
         }
 
 
