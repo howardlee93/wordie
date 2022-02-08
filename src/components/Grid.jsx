@@ -15,17 +15,18 @@ const main = {
 
 const Grid =() =>{
 
-    const createRows =()=> {
-        let rows =[];
-        for (let i = 0; i < 5; i++){
-            rows.push(<Row key={i}/>)
-        }
-        return rows;
-    };
+    // const createRows =()=> {
+    //     let rows =[];
+    //     for (let i = 0; i < 5; i++){
+    //         rows.push(<Row key={i}/>)
+    //     }
+    //     return rows;
+    // };
 
     return(
         <div style={main}>
-            {createRows()}
+            <Row/>
+            {/* {createRows()} */}
         </div>
     )
     
