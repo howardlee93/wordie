@@ -1,5 +1,6 @@
 import './App.css';
-import Grid from './components/Grid'
+import Grid from './components/Grid';
+import Keyboard from './components/Keyboard'
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
         Wordie - a Wordle clone
       </header>
       <Grid/>
+      <Keyboard/>
     </div>
   );
 }
