@@ -10,10 +10,10 @@ export const wordSlice =createSlice({
     },
     reducers:{
         addLetter (state, action) {
-            state.word += action.payload.toString();
+            state.word += action.payload
         },
         removeLetter(state, action){
-           state.word -= action.payload.word;
+           state.word -= action.payload;
 
         },
         compareWord(state){
