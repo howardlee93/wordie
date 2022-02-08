@@ -5,18 +5,6 @@ import React from 'react';
 import { useEffect } from 'react';
 // import { compareWord } from '../redux/wordSlice';
 
-const main = {
-    color: "white",
-    backgroundColor: "DodgerBlue",
-    padding: "10px",
-    border: '1px',
-    borderStyle: 'solid',
-    display: 'flex',
-    flexDirection: 'row',
-    margin: '5px',
-    textAlign:'center'
-}
-
 const Grid =() =>{
     
     // const correct = useSelector(state => state.correct)
@@ -38,7 +26,7 @@ const Grid =() =>{
 
    
     return(
-        <div style={main}>
+        <div>
 
             {guess === answer ? <h1>Good job!</h1> : <h1> Try again!</h1>}
             {/* {createRows()} */}

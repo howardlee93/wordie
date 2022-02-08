@@ -14,7 +14,8 @@ const Cell = () =>{
     };
 
     return(
-        <input onChange={handleSubmit}/>
+
+        <input className="border-2" onChange={handleSubmit}/>
     )
 }
 
