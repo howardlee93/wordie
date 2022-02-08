@@ -1,7 +1,12 @@
+import React from 'react';
 
+const Key = (props) =>{
 
-const Key = () =>{
-
+    return(
+        <div>
+            <p>{props.letter}</p>
+        </div>
+    )
 
 };
 
