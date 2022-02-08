@@ -1,6 +1,6 @@
 // import Cell from './Cell';
 import Row from './Row';
-
+import { useSelector } from 'react-redux';
 
 const main = {
     color: "white",
@@ -10,23 +10,26 @@ const main = {
     borderStyle: 'solid',
     display: 'flex',
     flexDirection: 'row',
-    margin: '5px'
+    margin: '5px',
+    textAlign:'center'
 }
 
 const Grid =() =>{
 
-    // const createRows =()=> {
-    //     let rows =[];
-    //     for (let i = 0; i < 5; i++){
-    //         rows.push(<Row key={i}/>)
-    //     }
-    //     return rows;
-    // };
+    const correct = useSelector(state => state.correct)
 
+    const createRows =()=> {
+        let rows =[];
+        for (let i = 0; i < 5; i++){
+            rows.push(<Row key={i}/>)
+        }
+        return rows;
+    };
+   
     return(
         <div style={main}>
-            <Row/>
             {/* {createRows()} */}
+            <Row/>
         </div>
     )
     
