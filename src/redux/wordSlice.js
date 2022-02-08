@@ -5,27 +5,27 @@ export const wordSlice =createSlice({
     name:'word',
     initialState:{
         answer:"hello",
-        word:"",
+        guess:"",
         correct: false
     },
     reducers:{
         addLetter (state, action) {
-            state.word += action.payload
+            state.guess += action.payload
         },
         removeLetter(state, action){
            state.word -= action.payload;
 
         },
-        compareWord(state){
-            state.correct = state.word === state.answer;
-        }
+        // compareWord(state){
+        //     state.correct = state.word === state.answer;
+        // }
 
 
     }
 
 });
 
-export const { addLetter, removeLetter, compareWord } = wordSlice.actions
+export const { addLetter, removeLetter } = wordSlice.actions
 
 export default wordSlice.reducer
 

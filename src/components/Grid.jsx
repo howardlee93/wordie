@@ -1,6 +1,9 @@
 // import Cell from './Cell';
 import Row from './Row';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
+import { useEffect } from 'react';
+// import { compareWord } from '../redux/wordSlice';
 
 const main = {
     color: "white",
@@ -15,8 +18,15 @@ const main = {
 }
 
 const Grid =() =>{
+    
+    // const correct = useSelector(state => state.correct)
+    const guess = useSelector(state => state.word.guess);
+    const answer = useSelector(state => state.word.answer)
+    const dispatch = useDispatch();
 
-    const correct = useSelector(state => state.correct)
+    useEffect(()=>{
+
+    },[guess, answer])
 
     const createRows =()=> {
         let rows =[];
@@ -25,9 +35,12 @@ const Grid =() =>{
         }
         return rows;
     };
+
    
     return(
         <div style={main}>
+
+            {guess === answer ? <h1>Good job!</h1> : <h1> Try again!</h1>}
             {/* {createRows()} */}
             <Row/>
         </div>

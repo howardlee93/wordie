@@ -1,4 +1,4 @@
-import {addLetter} from '../redux/wordSlice';
+import {addLetter, removeLetter} from '../redux/wordSlice';
 import { useDispatch } from 'react-redux';
 
 
@@ -8,11 +8,13 @@ const Cell = () =>{
     const handleSubmit = (e)=>{
         console.log(e.target.value)
         dispatch(addLetter(e.target.value));
-
+        // if(e.target.value == ""){
+        //     dispatch(removeLetter)
+        // }
     };
 
     return(
-        <input onKeyPress={handleSubmit}/>
+        <input onChange={handleSubmit}/>
     )
 }
 
