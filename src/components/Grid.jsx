@@ -17,22 +17,24 @@ const Grid =() =>{
 
     },[guess, answer])
 
-    const createRows =() =>{
-        let rows =[];
-        for(let i = 0; i< 4; i++){
-            rows.push(<Row key={i}/>)
-        };
-        return rows;
-    }
+    // const createRows =() =>{
+    //     let rows =[];
+    //     for(let i = 0; i< 5; i++){
+    //         rows.push(<Row key={i}/>)
+    //     };
+    //     return rows;
+    // }
 
     return(
-        <div className="flex-row">
+        <div>
+        {guess === answer ? <h1>Good job!</h1> : <h1> Try again!</h1>}
+        <div className="flex pb-6">
             
             {/* <Modal open={open}/> */}
-            {guess === answer ? <h1>Good job!</h1> : <h1> Try again!</h1>}
             {/* {createRows()} */}
-            <Row/>
+            <Row className="flex-row" guess={guess}/>
             
+        </div>
         </div>
     )
     

@@ -1,21 +1,10 @@
-import {addLetter, removeLetter} from '../redux/wordSlice';
-import { useDispatch } from 'react-redux';
+import React from "react";
 
-
-const Cell = () =>{ 
-    const dispatch = useDispatch();
-
-    const handleSubmit = (e)=>{
-        console.log(e.target.value)
-        dispatch(addLetter(e.target.value));
-        // if(e.target.value == ""){
-        //     dispatch(removeLetter)
-        // }
-    };
-
+const Cell = ({letter}) =>{ 
     return(
-
-        <div className="border-2">O</div>
+        <div className="border-2">
+            <p>{letter}</p>
+        </div>
     )
 }
 

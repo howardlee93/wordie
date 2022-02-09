@@ -1,23 +1,16 @@
+import React from 'react';
 import Cell from './Cell';
 
+const Row = ({guess}) =>{
 
-
-const cell = {
-    margin: '10px'
-};
-
-
-const Row = () =>{
-    const cellRows = () =>{
-        let row = [];
-        for(let i = 0; i < 5; i ++){
-            row.push(<Cell style={cell} key={i}/>)
-        }
-        return row;
-    }
     return(
-        <div>
-            {cellRows()}
+        <div className="flex-row pb-6">
+
+            {guess ? Array.from(guess).map((letter, i) =>(
+                <Cell key={i} letter={letter}/>
+            )) 
+            :("")    
+            }
         </div>
     )
 }
