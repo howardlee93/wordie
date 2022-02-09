@@ -15,7 +15,7 @@ const Cell = () =>{
 
     return(
 
-        <div className="border-2">value</div>
+        <div className="border-2">O</div>
     )
 }
 

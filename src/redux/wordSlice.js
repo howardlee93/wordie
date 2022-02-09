@@ -14,9 +14,12 @@ export const wordSlice =createSlice({
             state.guess += action.payload
         },
         removeLetter(state){
-            return state.guess.slice(0,-1);
-
+            let newGuess = state.guess;
+            newGuess = state.guess.substring(0, state.guess.length -1 );
+            state.guess = newGuess;
         },
+
+
         // compareWord(state){
         //     state.correct = state.word === state.answer;
         // }
