@@ -8,7 +8,7 @@ const Key = (props) =>{
 
     return(
         <div onClick={handleClick}>
-            <p className='border-4 text-lg'>{props.letter}</p>
+            <button className='border-4 text-lg'>{props.letter}</button>
         </div>
     )
 

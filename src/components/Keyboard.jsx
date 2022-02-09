@@ -16,11 +16,11 @@ const Keyboard = (props)=>{
     
       const onDelete =() =>{
         // setCurrentGuess(CurrentGuess.slice(0,-1));
-        dispatch(removeLetter);
+        dispatch(removeLetter());
       }
 
     useEffect(()=>{
-        const eventListenter = (event) =>{
+        const eventListener = (event) =>{
             if (event.code === "Backspace"){
                 onDelete()
             }else{
@@ -28,17 +28,16 @@ const Keyboard = (props)=>{
             }
         }
         
-        window.addEventListener("keyup", eventListenter);
+        window.addEventListener("keyup", eventListener);
         
         //unsubscribe
         return() =>{
-            window.removeEventListener("keyup", eventListenter)
+            window.removeEventListener("keyup", eventListener)
         }
-
-    },[])
+    })
 
     const onClick =(value)=>{
-        if(value === "delete"){
+        if(value === "DELETE"){
             onDelete();
         }else{
             onChar(value);

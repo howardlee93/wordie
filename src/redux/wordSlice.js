@@ -13,7 +13,7 @@ export const wordSlice =createSlice({
         addLetter(state, action) {
             state.guess += action.payload
         },
-        removeLetter(state, action){
+        removeLetter(state){
             return state.guess.slice(0,-1);
 
         },
