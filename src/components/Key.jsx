@@ -4,7 +4,7 @@ const Key = (props) =>{
 
     return(
         <div>
-            <p className='border-4' text-lg	>{props.letter}</p>
+            <p className='border-4 text-lg'>{props.letter}</p>
         </div>
     )
 

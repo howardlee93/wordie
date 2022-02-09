@@ -30,7 +30,7 @@ const Grid =() =>{
    
     return(
         <div>
-            <Modal open={open}/>
+            {/* <Modal openå={open}/> */}
             {guess === answer ? <h1>Good job!</h1> : <h1> Try again!</h1>}
             {createRows()}
             {/* <Row/> */}
