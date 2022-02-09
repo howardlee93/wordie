@@ -26,12 +26,12 @@ const Grid =() =>{
     }
 
     return(
-        <div>
+        <div className="flex-row">
             
             {/* <Modal open={open}/> */}
             {guess === answer ? <h1>Good job!</h1> : <h1> Try again!</h1>}
-            {createRows()}
-            {/* <Row/> */}
+            {/* {createRows()} */}
+            <Row/>
             
         </div>
     )
