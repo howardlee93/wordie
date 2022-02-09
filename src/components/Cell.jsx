@@ -15,7 +15,7 @@ const Cell = () =>{
 
     return(
 
-        <input className="border-2" onChange={handleSubmit}/>
+        <div className="border-2">cell value</div>
     )
 }
 
