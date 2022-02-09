@@ -3,17 +3,18 @@ import {createSlice } from '@reduxjs/toolkit';
 export const wordSlice =createSlice({
 
     name:'word',
+    
     initialState:{
         answer:"hello",
         guess:"",
         correct: false
     },
     reducers:{
-        addLetter (state, action) {
+        addLetter(state, action) {
             state.guess += action.payload
         },
         removeLetter(state, action){
-           state.word -= action.payload;
+           state.guess -= action.payload;
 
         },
         // compareWord(state){

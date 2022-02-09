@@ -2,8 +2,10 @@
 import Row from './Row';
 import { useSelector, useDispatch } from 'react-redux';
 import React from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 // import { compareWord } from '../redux/wordSlice';
+import Modal from './Modal';
+
 
 const Grid =() =>{
     
@@ -11,6 +13,7 @@ const Grid =() =>{
     const guess = useSelector(state => state.word.guess);
     const answer = useSelector(state => state.word.answer)
     const dispatch = useDispatch();
+    const [open, setOpen] = useState(false);
 
     useEffect(()=>{
 
@@ -27,10 +30,10 @@ const Grid =() =>{
    
     return(
         <div>
-
+            <Modal open={open}/>
             {guess === answer ? <h1>Good job!</h1> : <h1> Try again!</h1>}
-            {/* {createRows()} */}
-            <Row/>
+            {createRows()}
+            {/* <Row/> */}
         </div>
     )
     
