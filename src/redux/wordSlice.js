@@ -14,7 +14,7 @@ export const wordSlice =createSlice({
             state.guess += action.payload
         },
         removeLetter(state, action){
-           state.guess -= action.payload;
+            return state.guess.slice(0,-1);
 
         },
         // compareWord(state){

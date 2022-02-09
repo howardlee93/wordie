@@ -1,16 +1,30 @@
 import React, {useEffect} from 'react';
-
+import {addLetter, removeLetter} from '../redux/wordSlice';
+import { useDispatch } from 'react-redux';
 import Key from './Key';
 
 
 const Keyboard = (props)=>{
 
+    const dispatch = useDispatch();
+
+    const onChar = value =>{
+        // setCurrentGuess(`${value}`)
+        console.log(value);
+        dispatch(addLetter(value));
+      };
+    
+      const onDelete =() =>{
+        // setCurrentGuess(CurrentGuess.slice(0,-1));
+        dispatch(removeLetter);
+      }
+
     useEffect(()=>{
         const eventListenter = (event) =>{
-            if (event.key === "backspace"){
-                props.onDelete()
+            if (event.code === "Backspace"){
+                onDelete()
             }else{
-                props.onChar(event.key)
+                onChar(event.key)
             }
         }
         
@@ -21,16 +35,15 @@ const Keyboard = (props)=>{
             window.removeEventListener("keyup", eventListenter)
         }
 
-    },[props, props.onChar, props.onDelete])
+    },[])
 
     const onClick =(value)=>{
         if(value === "delete"){
-            props.onDelete();
+            onDelete();
         }else{
-            props.onChar(value);
+            onChar(value);
 
         }
-
     }
 
     return(
@@ -52,11 +65,17 @@ const Keyboard = (props)=>{
                 ))} 
             </div>
              <div className="flex justify-center">
+                <Key letter="ENTER" onClick={onClick}>
+                    <p>ENTER</p>
+                </Key>
                 {['Z', 'X', 'C', 'V', 'B', 'N', 'M'].map((key) => (
                     <Key key={key} 
                     onClick={onClick}
                     letter={key}/>
-                ))}        
+                ))}  
+                <Key letter="DELETE" onClick={onClick}>
+                    <p>Backspace</p>
+                </Key>      
             </div>
             </div>
         </div>
