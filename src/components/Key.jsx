@@ -3,11 +3,11 @@ import React from 'react';
 const Key = (props) =>{
 
     const handleClick = (e)=>{
-        props.onclick(props.letter)
+        props.onClick(props.letter)
     }
 
     return(
-        <div>
+        <div onClick={handleClick}>
             <p className='border-4 text-lg'>{props.letter}</p>
         </div>
     )
