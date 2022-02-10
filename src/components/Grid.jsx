@@ -13,6 +13,7 @@ const Grid =() =>{
     const dispatch = useDispatch();
     const [open, setOpen] = useState(false);
     const numGuesses = 4;
+    const emptyRows = Array.from(numGuesses -1);
 
 
     useEffect(()=>{
@@ -35,7 +36,11 @@ const Grid =() =>{
             {/* <Modal open={open}/> */}
             <Row className="flex-row" guess={guess}/>
             {/* <EmptyRow/> */}
-            {createEmptyRows()}
+            {/* {createEmptyRows()} */}
+
+            {emptyRows.map((_,i)=>{
+                return <EmptyRow key={i}/>
+            })}
             
         </div>
         </div>

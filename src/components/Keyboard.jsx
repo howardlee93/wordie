@@ -24,7 +24,10 @@ const Keyboard = (props)=>{
             if (event.code === "Backspace"){
                 onDelete()
             }else{
-                onChar(event.key)
+                const key = event.key.toLowerCase();
+                if (key.length === 1 && key >= 'a' && key <='z'){
+                    onChar(key);
+                };
             }
         }
         
