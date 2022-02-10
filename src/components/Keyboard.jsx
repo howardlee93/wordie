@@ -32,7 +32,6 @@ const Keyboard = (props)=>{
         }
         
         window.addEventListener("keyup", eventListener);
-        
         //unsubscribe
         return() =>{
             window.removeEventListener("keyup", eventListener)

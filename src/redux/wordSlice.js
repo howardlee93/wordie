@@ -7,7 +7,8 @@ export const wordSlice =createSlice({
     initialState:{
         answer:"hello",
         guess:"",
-        correct: false
+        correct: false,
+        numGuesses: 0,
     },
     reducers:{
         addLetter(state, action) {
@@ -18,6 +19,12 @@ export const wordSlice =createSlice({
             newGuess = state.guess.substring(0, state.guess.length -1 );
             state.guess = newGuess;
         },
+        addGuess(state){
+            if(state.guess.length === 5){
+                state.numGuesses ++;
+                return state.numGuesse;
+            }
+        }
 
 
         // compareWord(state){
