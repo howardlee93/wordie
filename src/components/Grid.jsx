@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Modal from './Modal';
 import Row from './Row';
-
+import EmptyRow from './EmptyRow';
 
 const Grid =() =>{
     
@@ -12,18 +12,20 @@ const Grid =() =>{
     const answer = useSelector(state => state.word.answer)
     const dispatch = useDispatch();
     const [open, setOpen] = useState(false);
+    const numGuesses = 4;
+
 
     useEffect(()=>{
 
     },[guess, answer])
 
-    // const createRows =() =>{
-    //     let rows =[];
-    //     for(let i = 0; i< 5; i++){
-    //         rows.push(<Row key={i}/>)
-    //     };
-    //     return rows;
-    // }
+    const createEmptyRows =() =>{
+        let rows =[];
+        for(let i = 0; i< numGuesses; i++){
+            rows.push(<EmptyRow key={i}/>)
+        };
+        return rows;
+    }
 
     return(
         <div>
@@ -31,8 +33,9 @@ const Grid =() =>{
         <div className="flex pb-6">
             
             {/* <Modal open={open}/> */}
-            {/* {createRows()} */}
             <Row className="flex-row" guess={guess}/>
+            {/* <EmptyRow/> */}
+            {createEmptyRows()}
             
         </div>
         </div>
