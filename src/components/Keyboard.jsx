@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {addLetter, removeLetter} from '../redux/wordSlice';
+import {addLetter, removeLetter, addGuess} from '../redux/wordSlice';
 import { useDispatch } from 'react-redux';
 import Key from './Key';
 
@@ -7,6 +7,11 @@ import Key from './Key';
 const Keyboard = (props)=>{
 
     const dispatch = useDispatch();
+
+    const onEnter = ()=>{
+        console.log('enter guess');
+        dispatch(addGuess());
+    }
 
     const onChar = value =>{
         // setCurrentGuess(`${value}`)
@@ -23,6 +28,8 @@ const Keyboard = (props)=>{
         const eventListener = (event) =>{
             if (event.code === "Backspace"){
                 onDelete()
+            }else if(event.code === "Enter"){
+                onEnter()
             }else{
                 const key = event.key.toLowerCase();
                 if (key.length === 1 && key >= 'a' && key <='z'){

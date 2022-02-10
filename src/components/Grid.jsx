@@ -29,9 +29,9 @@ const Grid =() =>{
     }
 
     return(
-        <div>
+        <div className="text-center">
         {guess === answer ? <h1>Good job!</h1> : <h1> Try again!</h1>}
-        <div className="flex pb-6">
+        <div className="flex pb-6 content-center">
             
             {/* <Modal open={open}/> */}
             <Row className="flex-row" guess={guess}/>

@@ -22,8 +22,9 @@ export const wordSlice =createSlice({
         addGuess(state){
             if(state.guess.length === 5){
                 state.numGuesses ++;
-                return state.numGuesse;
-            }
+                state.guess = "";
+            };
+
         }
 
 
@@ -36,7 +37,7 @@ export const wordSlice =createSlice({
 
 });
 
-export const { addLetter, removeLetter } = wordSlice.actions
+export const { addLetter, removeLetter, addGuess } = wordSlice.actions
 
 export default wordSlice.reducer
 
