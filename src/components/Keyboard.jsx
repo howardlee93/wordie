@@ -52,9 +52,8 @@ const Keyboard = (props)=>{
     const onClick =(value)=>{
         if(value === "DELETE"){
             onDelete();
-        }else{
+        }else if (guess.length < MAX_WORD_LENGTH){
             onChar(value);
-
         }
     }
 

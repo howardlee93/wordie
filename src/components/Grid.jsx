@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Modal from './Modal';
 import Row from './Row';
 import EmptyRow from './EmptyRow';
+import {MAX_GUESSES} from '../constant/constant';
 
 const Grid =() =>{
     
@@ -14,7 +15,7 @@ const Grid =() =>{
     const dispatch = useDispatch();
     const [open, setOpen] = useState(false);
     const numGuesses = useSelector(state => state.word.numGuesses);
-    const numGuessesLeft = 5 - numGuesses;
+    const numGuessesLeft = MAX_GUESSES - numGuesses;
 
     useEffect(()=>{
 
@@ -30,13 +31,13 @@ const Grid =() =>{
 
     return(
         <div>
-        {guess === answer ? <h1>Good job!</h1> : <h1> Try again!</h1>}
+        {guess === answer ? <h1><b>Good job!</b></h1> : <h1> Try again!</h1>}
         <div className="pb-6">
             
             {/* <Modal open={open}/> */}
 
-            {pastGuesses && numGuessesLeft < 5 ? pastGuesses.map(guess =>(
-                <Row guess={guess}/>
+            {pastGuesses && numGuessesLeft < 5 ? pastGuesses.map((guess, i) =>(
+                <Row key={i} guess={guess}/>
             )) : ("")}
              <Row guess={guess}/>
             {createEmptyRow()}
