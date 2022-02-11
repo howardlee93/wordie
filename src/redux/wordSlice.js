@@ -22,7 +22,7 @@ export const wordSlice =createSlice({
         addGuess(state){
             if(state.guess.length === 5){
                 state.numGuesses ++;
-                state.guess = "";
+                // state.guess = "";
             };
 
         }
