@@ -35,7 +35,7 @@ const Grid =() =>{
             
             {/* <Modal open={open}/> */}
 
-            {pastGuesses ? pastGuesses.map(guess =>(
+            {pastGuesses && numGuessesLeft < 5 ? pastGuesses.map(guess =>(
                 <Row guess={guess}/>
             )) : ("")}
              <Row guess={guess}/>
