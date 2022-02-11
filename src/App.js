@@ -1,7 +1,8 @@
 import './App.css';
 import React, {useEffect, useState} from 'react';
 import Grid from './components/Grid';
-import Keyboard from './components/Keyboard'
+import Keyboard from './components/Keyboard';
+import { Footer } from './components/Footer';
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
       </header>
       <Grid/>
       <Keyboard/>
+      <Footer/>
     </div>
   );
 }
