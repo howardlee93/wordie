@@ -14,7 +14,7 @@ const EmptyRow = () =>{
     }
 
     return(
-        <div className="flex flex-row pb-6">
+        <div className="flex flex-row justify-center items-center pb-6">
             {createEmptyRow()}
         </div>
     )

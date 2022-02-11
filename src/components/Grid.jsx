@@ -12,36 +12,29 @@ const Grid =() =>{
     const answer = useSelector(state => state.word.answer)
     const dispatch = useDispatch();
     const [open, setOpen] = useState(false);
-    const numGuesses = 4;
-    const emptyRows = Array.from(numGuesses -1);
-
+    const numGuesses = useSelector(state => state.word.numGuesses);
+    const numGuessesLeft = 5 - numGuesses;
 
     useEffect(()=>{
 
-    },[guess, answer])
+    },[guess, answer, numGuesses])
 
-    const createEmptyRows =() =>{
-        let rows =[];
-        for(let i = 0; i< numGuesses; i++){
-            rows.push(<EmptyRow key={i}/>)
-        };
-        return rows;
+    const createEmptyRow = () =>{
+        let emptyRows = [];
+        for (let i = 0; i < numGuessesLeft; i++){
+            emptyRows.push(<EmptyRow key={i}/>);
+        }
+        return emptyRows;
     }
 
     return(
-        <div className="text-center">
+        <div>
         {guess === answer ? <h1>Good job!</h1> : <h1> Try again!</h1>}
-        <div className="flex pb-6 content-center">
+        <div className="pb-6">
             
             {/* <Modal open={open}/> */}
-            <Row className="flex-row" guess={guess}/>
-            {/* <EmptyRow/> */}
-            {/* {createEmptyRows()} */}
-
-            {emptyRows.map((_,i)=>{
-                return <EmptyRow key={i}/>
-            })}
-            
+            <Row guess={guess}/>
+            {createEmptyRow()}
         </div>
         </div>
     )
