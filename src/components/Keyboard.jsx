@@ -1,11 +1,13 @@
 import React, {useEffect} from 'react';
 import {addLetter, removeLetter, addGuess} from '../redux/wordSlice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Key from './Key';
+import {MAX_WORD_LENGTH} from '../constant/constant';
 
 
 const Keyboard = (props)=>{
 
+    const guess = useSelector(state => state.word.guess);
     const dispatch = useDispatch();
 
     const onEnter = ()=>{
@@ -32,7 +34,7 @@ const Keyboard = (props)=>{
                 onEnter()
             }else{
                 const key = event.key.toLowerCase();
-                if (key.length === 1 && key >= 'a' && key <='z'){
+                if (key.length === 1 && key >= 'a' && key <='z' && guess.length < MAX_WORD_LENGTH ){
                     onChar(key);
                 };
             }
@@ -43,7 +45,9 @@ const Keyboard = (props)=>{
         return() =>{
             window.removeEventListener("keyup", eventListener)
         }
-    })
+    });
+
+    useEffect(()=>{},[guess]);
 
     const onClick =(value)=>{
         if(value === "DELETE"){
