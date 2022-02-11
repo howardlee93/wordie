@@ -1,4 +1,5 @@
 import {createSlice } from '@reduxjs/toolkit';
+import { MAX_GUESSES, MAX_WORD_LENGTH } from '../constant/constant';
 
 export const wordSlice =createSlice({
 
@@ -21,7 +22,7 @@ export const wordSlice =createSlice({
             state.guess = newGuess;
         },
         addGuess(state){
-            if(state.guess.length === 5){
+            if(state.guess.length === MAX_WORD_LENGTH && state.pastGuesses.length < MAX_GUESSES){
                 state.numGuesses ++;
                 state.pastGuesses.push(state.guess)
                 state.guess = "";

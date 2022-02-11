@@ -23,7 +23,7 @@ const Grid =() =>{
 
     const createEmptyRow = () =>{
         let emptyRows = [];
-        for (let i = 0; i < numGuessesLeft; i++){
+        for (let i = 0; i < numGuessesLeft - 1 ; i++){
             emptyRows.push(<EmptyRow key={i}/>);
         }
         return emptyRows;
