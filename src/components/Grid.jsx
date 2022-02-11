@@ -10,6 +10,7 @@ const Grid =() =>{
     // const correct = useSelector(state => state.correct)
     const guess = useSelector(state => state.word.guess);
     const answer = useSelector(state => state.word.answer)
+    const pastGuesses = useSelector(state => state.word.pastGuesses);
     const dispatch = useDispatch();
     const [open, setOpen] = useState(false);
     const numGuesses = useSelector(state => state.word.numGuesses);
@@ -17,7 +18,7 @@ const Grid =() =>{
 
     useEffect(()=>{
 
-    },[guess, answer, numGuesses])
+    },[guess, answer, numGuesses, pastGuesses])
 
     const createEmptyRow = () =>{
         let emptyRows = [];
@@ -33,7 +34,11 @@ const Grid =() =>{
         <div className="pb-6">
             
             {/* <Modal open={open}/> */}
-            <Row guess={guess}/>
+
+            {pastGuesses ? pastGuesses.map(guess =>(
+                <Row guess={guess}/>
+            )) : ("")}
+             <Row guess={guess}/>
             {createEmptyRow()}
         </div>
         </div>

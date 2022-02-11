@@ -9,6 +9,7 @@ export const wordSlice =createSlice({
         guess:"",
         correct: false,
         numGuesses: 0,
+        pastGuesses:[],
     },
     reducers:{
         addLetter(state, action) {
@@ -22,7 +23,8 @@ export const wordSlice =createSlice({
         addGuess(state){
             if(state.guess.length === 5){
                 state.numGuesses ++;
-                // state.guess = "";
+                state.pastGuesses.push(state.guess)
+                state.guess = "";
             };
 
         }
