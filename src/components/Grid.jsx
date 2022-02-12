@@ -14,17 +14,18 @@ const Grid =() =>{
     const pastGuesses = useSelector(state => state.word.pastGuesses);
     const dispatch = useDispatch();
     const [open, setOpen] = useState(false);
-    const numGuesses = useSelector(state => state.word.numGuesses);
-    const numGuessesLeft = MAX_GUESSES - numGuesses;
+    const numGuessesLeft = MAX_GUESSES - pastGuesses.length;
 
     useEffect(()=>{
 
-    },[guess, answer, numGuesses, pastGuesses])
+    },[guess, answer, pastGuesses])
 
     const createEmptyRow = () =>{
         let emptyRows = [];
-        for (let i = 0; i < numGuessesLeft - 1 ; i++){
-            emptyRows.push(<EmptyRow key={i}/>);
+        if(numGuessesLeft < MAX_GUESSES){
+            for (let i = 0; i < numGuessesLeft - 1 ; i++){
+                emptyRows.push(<EmptyRow key={i}/>);
+            }
         }
         return emptyRows;
     }
