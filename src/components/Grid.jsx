@@ -20,14 +20,6 @@ const Grid =() =>{
 
     },[guess, answer, pastGuesses])
 
-    const createEmptyRow = () =>{
-        let emptyRows = [];
-            for (let i = 0; i < numGuessesLeft - 1 ; i++){
-                emptyRows.push(<EmptyRow key={i}/>);
-            }
-        return emptyRows;
-    }
-
     return(
         <div>
         {guess === answer ? <h1><b>Good job!</b></h1> : <h1> Try again!</h1>}
@@ -39,11 +31,9 @@ const Grid =() =>{
                 <Row key={i} guess={guess}/>
             )) : ("")}
              <Row guess={guess}/>
-
              {Array.from(new Array(numGuessesLeft)).map((_,i)=>(
                  <EmptyRow key={i}/>
              ))}
-            {/* {numGuessesLeft <= 4 ? createEmptyRow() : ("")} */}
         </div>
         </div>
     )

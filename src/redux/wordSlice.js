@@ -1,12 +1,13 @@
 import {createSlice } from '@reduxjs/toolkit';
 import { MAX_GUESSES, MAX_WORD_LENGTH } from '../constant/constant';
+import {getAnswer} from '../util/util';
 
 export const wordSlice =createSlice({
 
     name:'word',
     
     initialState:{
-        answer:"hello",
+        answer: getAnswer(),//"hello",
         guess:"",
         correct: false,
         numGuesses: 0,
