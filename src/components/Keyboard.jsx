@@ -2,17 +2,22 @@ import React, {useEffect} from 'react';
 import {addLetter, removeLetter, addGuess} from '../redux/wordSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import Key from './Key';
-import {MAX_WORD_LENGTH} from '../constant/constant';
+import {MAX_GUESSES, MAX_WORD_LENGTH} from '../constant/constant';
 
 
 const Keyboard = (props)=>{
 
+    const pastGuesses = useSelector(state => state.word.pastGuesses);
     const guess = useSelector(state => state.word.guess);
     const dispatch = useDispatch();
 
     const onEnter = ()=>{
-        console.log('enter guess');
-        dispatch(addGuess());
+        if(pastGuesses.length <= MAX_GUESSES){
+            console.log('enter guess');
+            dispatch(addGuess());
+        };
+        
+        
     }
 
     const onChar = value =>{
