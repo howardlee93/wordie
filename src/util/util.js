@@ -1,4 +1,4 @@
-import words from '../constant/words';
+import {words} from '../constant/words';
 
 export const getAnswer = () =>{
     let randNum = Math.floor(Math.random()* words.length);
@@ -7,10 +7,10 @@ export const getAnswer = () =>{
 
 export const checkValidGuess = (guess) =>{
     for (let i = 0; i < words.length; i++){
-        if (guess !== words[i]){
-            return false;
+        if (guess === words[i]){
+            return true;
         }
     }
-    return true;
+    return false;
 }
 

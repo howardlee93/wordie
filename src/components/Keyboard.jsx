@@ -14,7 +14,7 @@ const Keyboard = (props)=>{
     const onEnter = ()=>{
         if(pastGuesses.length <= MAX_GUESSES){
             console.log('enter guess');
-            if(checkValidGuess(guess)){
+            if(checkValidGuess(guess) === true){
                 dispatch(addGuess())
             }else{
                 alert('not a valid word');
@@ -60,8 +60,10 @@ const Keyboard = (props)=>{
     const onClick =(value)=>{
         if(value === "DELETE"){
             onDelete();
+        }else if(value === "ENTER"){
+            onEnter();
         }else if (guess.length < MAX_WORD_LENGTH){
-            onChar(value);
+            onChar(value.toLowerCase());
         }
     }
 
