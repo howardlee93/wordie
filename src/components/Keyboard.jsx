@@ -3,7 +3,7 @@ import {addLetter, removeLetter, addGuess} from '../redux/wordSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import Key from './Key';
 import {MAX_GUESSES, MAX_WORD_LENGTH} from '../constant/constant';
-
+import { checkValidGuess } from '../util/util';
 
 const Keyboard = (props)=>{
 
@@ -14,10 +14,13 @@ const Keyboard = (props)=>{
     const onEnter = ()=>{
         if(pastGuesses.length <= MAX_GUESSES){
             console.log('enter guess');
-            dispatch(addGuess());
-        };
-        
-        
+            if(checkValidGuess(guess)){
+                dispatch(addGuess())
+            }else{
+                alert('not a valid word');
+            };
+        }
+          
     }
 
     const onChar = value =>{

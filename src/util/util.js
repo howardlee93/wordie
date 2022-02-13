@@ -5,7 +5,7 @@ export const getAnswer = () =>{
     return words[randNum];
 };
 
-export const getValidGuess = (guess) =>{
+export const checkValidGuess = (guess) =>{
     for (let i = 0; i < words.length; i++){
         if (guess !== words[i]){
             return false;
