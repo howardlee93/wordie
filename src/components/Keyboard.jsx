@@ -20,9 +20,10 @@ const Keyboard = (props)=>{
             console.log('enter guess');
             if(checkValidGuess(guess) === true){
                 dispatch(addGuess())
-                Promise.resolve(getCharStatus(answer, guess))
-                .then(res => setStatsArr(res))
-                .then(()=>console.log(statsArr));
+                getCharStatus(answer, guess)
+                // Promise.resolve(getCharStatus(answer, guess))
+                // .then(res => setStatsArr(res))
+                // .then(()=>console.log(statsArr));
             }else{
                 alert('not a valid word');
             };
