@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import Key from './Key';
 import {MAX_GUESSES, MAX_WORD_LENGTH} from '../constant/constant';
 import { checkValidGuess } from '../util/util';
-import {getCharStatus} from '../util/status';
-import { useState } from 'react';
+import {addCharStatus} from '../redux/statusSlice';
+// import {getCharStatus} from '../util/status';
 
 const Keyboard = (props)=>{
 
@@ -13,14 +13,14 @@ const Keyboard = (props)=>{
     const guess = useSelector(state => state.word.guess);
     const answer = useSelector(state => state.word.answer);
     const dispatch = useDispatch();
-    const [statsArr, setStatsArr] = useState([])
 
     const onEnter = ()=>{
         if(pastGuesses.length <= MAX_GUESSES){
             console.log('enter guess');
             if(checkValidGuess(guess) === true){
-                dispatch(addGuess())
-                getCharStatus(answer, guess)
+                dispatch(addGuess());
+                dispatch(addCharStatus(answer, guess));
+                // console.log(getCharStatus(answer, guess))
                 // Promise.resolve(getCharStatus(answer, guess))
                 // .then(res => setStatsArr(res))
                 // .then(()=>console.log(statsArr));
