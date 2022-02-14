@@ -4,18 +4,25 @@ import { useDispatch, useSelector } from 'react-redux';
 import Key from './Key';
 import {MAX_GUESSES, MAX_WORD_LENGTH} from '../constant/constant';
 import { checkValidGuess } from '../util/util';
+import {getCharStatus} from '../util/status';
+import { useState } from 'react';
 
 const Keyboard = (props)=>{
 
     const pastGuesses = useSelector(state => state.word.pastGuesses);
     const guess = useSelector(state => state.word.guess);
+    const answer = useSelector(state => state.word.answer);
     const dispatch = useDispatch();
+    const [statsArr, setStatsArr] = useState([])
 
     const onEnter = ()=>{
         if(pastGuesses.length <= MAX_GUESSES){
             console.log('enter guess');
             if(checkValidGuess(guess) === true){
                 dispatch(addGuess())
+                Promise.resolve(getCharStatus(answer, guess))
+                .then(res => setStatsArr(res))
+                .then(()=>console.log(statsArr));
             }else{
                 alert('not a valid word');
             };

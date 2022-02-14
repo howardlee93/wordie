@@ -3,14 +3,13 @@
 const status =  'absent' | 'present' | 'correct'
 
 
-const getCharStatus = (answer, guess) =>{
+export const getCharStatus = (answer, guess) =>{
     let statsArr = [];
-
-    for (let i = 0; i < 4 ;i ++){
+    for (let i = 0; i < 4 ;i++){
         if (guess[i] == answer[i]){
             statsArr.push(true)
         }else{
-            push(false);
+            statsArr.push(false);
         };
     }
     return statsArr;
