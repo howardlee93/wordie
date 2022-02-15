@@ -27,7 +27,8 @@ const Keyboard = ()=>{
             }; 
         }else{ //if(pastGuesses.length === MAX_GUESSES)
             dispatch(addCharStatus());
-            alert(`game ended! You have ${answer === pastGuesses[pastGuesses.length -1] ? 'won' : 'lost' }`)
+            alert(`game ended! You have ${answer === pastGuesses[pastGuesses.length -1] ? 'won' : 'lost' }. 
+            The answer is ${answer}`)
         }
     }
 
