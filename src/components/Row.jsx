@@ -3,7 +3,7 @@ import Cell from './Cell';
 import { MAX_WORD_LENGTH } from '../constant/constant';
 import { useSelector } from 'react-redux';
 
-const Row = ({key, guess}) =>{
+const Row = ({key, guess, pastGuessStatus}) =>{
 
     const keyRow = useSelector((state) => state.status[key])
     const charStatus = useSelector(state => state.status.charStatus);
@@ -15,11 +15,11 @@ const Row = ({key, guess}) =>{
 
         {/* {Array.from(guess).map((letter, i) =>(
                 <Cell key={i} letter={letter} charStatus={'correct'} />
-            )
+            )charStatus={charStatus ? charStatus[i]: pastGuessStatus[i]}
         )} */}
 
         {Array.from(guess).map((letter, i) =>(
-                <Cell key={i} letter={letter} charStatus={charStatus? charStatus[i]: ''} />
+                <Cell key={i} letter={letter} charStatus={pastGuessStatus ? pastGuessStatus[i] : charStatus[i]} />
             )
         )}
 
