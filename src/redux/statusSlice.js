@@ -12,11 +12,11 @@ export const addCharStatus = createAsyncThunk('status/addCharStatus', async(_, {
 export const statusSlice = createSlice({
     name:'status',
     initialState:{
-        row1:[],
-        row2:[],
-        row3:[],
-        row4:[],
-        row5:[],
+        0:[],
+        1:[],
+        2:[],
+        3:[],
+        4:[],
         charStatus:[]
     },
    
