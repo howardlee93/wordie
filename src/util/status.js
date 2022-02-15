@@ -1,15 +1,17 @@
 // status.js
 
-const status =  'absent' | 'present' | 'correct'
-
-
 export const getCharStatus = (answer, guess) =>{
     let statsArr = [];
     for (let i = 0; i < 5 ;i++){
         if (guess[i] === answer[i]){
-            statsArr.push(true)
+            statsArr.push('correct');
+            // statsArr.push(true)
+        }else if(answer.includes(guess[i])){
+            statsArr.push('present');
         }else{
-            statsArr.push(false);
+            statsArr.push('absent');
+
+            // statsArr.push(false);
         };
     }
     // console.log(statsArr);

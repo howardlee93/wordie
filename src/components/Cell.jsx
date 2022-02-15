@@ -1,6 +1,6 @@
 import React from "react";
 
-const Cell = ({letter, charStatus='absent'}) =>{ 
+const Cell = ({letter, charStatus}) =>{ 
     let status;
 
     switch(charStatus){

@@ -8,7 +8,7 @@ import {MAX_GUESSES} from '../constant/constant';
 
 const Grid =() =>{
     
-    const charStatus = useSelector(state => state.status.charStatus);
+    // const charStatus = useSelector(state => state.status.charStatus);
     const guess = useSelector(state => state.word.guess);
     const answer = useSelector(state => state.word.answer)
     const pastGuesses = useSelector(state => state.word.pastGuesses);
@@ -18,7 +18,7 @@ const Grid =() =>{
 
     useEffect(()=>{
 
-    },[guess, answer, pastGuesses, charStatus])
+    },[guess, answer, pastGuesses]) // charStatus
 
     return(
         <div>
@@ -29,7 +29,7 @@ const Grid =() =>{
             {pastGuesses && numGuessesLeft < 5 ? pastGuesses.map((guess, i) =>(
                 <Row key={i} guess={guess}/>
             )) : ("")}
-             <Row guess={guess}/>
+             <Row guess={guess} />
              {Array.from(new Array(numGuessesLeft)).map((_,i)=>(
                  <EmptyRow key={i}/>
              ))}
