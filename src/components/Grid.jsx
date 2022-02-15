@@ -25,13 +25,11 @@ const Grid =() =>{
             {pastGuesses && numGuessesLeft < 5 ? pastGuesses.map((guess, i) =>(
                 <Row key={i} guess={guess} pastGuessStatus={pastGuessesStatus[i]}/>
             )) : ("")}
-
-
-            {pastGuesses < 5 && numGuessesLeft > 0 ? <Row guess={guess} /> : ("") }
-             {/* <Row guess={guess} /> */}
-             {Array.from(new Array(numGuessesLeft - 1) ).map((_,i)=>(
+            {pastGuesses.length < 5 && numGuessesLeft > 0 ? <Row guess={guess} /> : ("")}
+            
+            { numGuessesLeft > 0 ? Array.from(new Array(numGuessesLeft - 1) ).map((_,i)=>(
                  <EmptyRow key={i}/>
-             ))}
+             )): ("")}
         </div>
         </div>
     )

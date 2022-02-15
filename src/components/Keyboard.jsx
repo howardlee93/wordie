@@ -6,8 +6,8 @@ import {MAX_GUESSES, MAX_WORD_LENGTH} from '../constant/constant';
 import { checkValidGuess } from '../util/util';
 import {addCharStatus} from '../redux/statusSlice';
 
-const Keyboard = (props)=>{
-
+const Keyboard = ()=>{
+    const answer = useSelector(state => state.word.answer);
     const pastGuesses = useSelector(state => state.word.pastGuesses);
     const guess = useSelector(state => state.word.guess);
     const dispatch = useDispatch();
@@ -21,11 +21,11 @@ const Keyboard = (props)=>{
                 // console.log(getCharStatus(answer, guess))
             }else{
                 alert('not a valid word');
-            };
-        }else if(pastGuesses.length < MAX_GUESSES){
+            }; 
+        }else{ //if(pastGuesses.length === MAX_GUESSES)
             dispatch(addCharStatus());
+            alert(`game ended! You have ${answer === guess ? 'won' : 'lost' }`)
         }
-          
     }
 
     const onChar = value =>{
