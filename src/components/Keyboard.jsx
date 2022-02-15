@@ -5,7 +5,7 @@ import Key from './Key';
 import {MAX_GUESSES, MAX_WORD_LENGTH} from '../constant/constant';
 import { checkValidGuess } from '../util/util';
 import {addCharStatus} from '../redux/statusSlice';
-// import {getCharStatus} from '../util/status';
+import {getCharStatus} from '../util/status';
 
 const Keyboard = (props)=>{
 
@@ -18,12 +18,9 @@ const Keyboard = (props)=>{
         if(pastGuesses.length <= MAX_GUESSES){
             console.log('enter guess');
             if(checkValidGuess(guess) === true){
-                dispatch(addGuess());
                 dispatch(addCharStatus(answer, guess));
+                dispatch(addGuess());
                 // console.log(getCharStatus(answer, guess))
-                // Promise.resolve(getCharStatus(answer, guess))
-                // .then(res => setStatsArr(res))
-                // .then(()=>console.log(statsArr));
             }else{
                 alert('not a valid word');
             };

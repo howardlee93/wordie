@@ -1,13 +1,13 @@
 import {createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import {getCharStatus} from '../util/status';
 
-export const addCharStatus = createAsyncThunk('status/getCharStatus', async(answer, guess)=>{
+export const addCharStatus = createAsyncThunk('status/addCharStatus', async(_, { getState} )=>{
+    const {answer} = getState().word;
+    const  {guess} = getState().word;
     const res = getCharStatus(answer, guess);
+    console.log(res, answer, guess);
     return res;
 });
-
-
-
 
 export const statusSlice = createSlice({
     name:'status',
