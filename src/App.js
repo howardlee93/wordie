@@ -12,9 +12,9 @@ function App() {
     <div className="App">
       <header className='App-header'>
         Wordie - a Wordle clone
-        <h1>Instructions</h1>
+        <h1 onClick={()=>setOpen(!open)}>Instructions</h1>
       </header>
-      <Modal/>
+      <Modal open={open} onClick={()=>setOpen(!open)}/>
       <Grid/>
       <Keyboard/>
       <Footer/>
