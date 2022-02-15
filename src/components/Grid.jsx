@@ -22,9 +22,10 @@ const Grid =() =>{
         {guess === answer ? <h1><b>Good job!</b></h1> : <h1> Try again!</h1>}
         <div className="pb-6">            
 
-            {pastGuesses && numGuessesLeft < 5 ? pastGuesses.map((guess, i) =>(
+            {pastGuesses && numGuessesLeft <= 5 ? pastGuesses.map((guess, i) =>(
                 <Row key={i} guess={guess} pastGuessStatus={pastGuessesStatus[i]}/>
             )) : ("")}
+            
              <Row guess={guess} />
              {Array.from(new Array(numGuessesLeft)).map((_,i)=>(
                  <EmptyRow key={i}/>

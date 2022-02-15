@@ -3,9 +3,8 @@ import Cell from './Cell';
 import { MAX_WORD_LENGTH } from '../constant/constant';
 import { useSelector } from 'react-redux';
 
-const Row = ({key, guess, pastGuessStatus}) =>{
+const Row = ({ guess, pastGuessStatus}) =>{
 
-    const keyRow = useSelector((state) => state.status[key])
     const charStatus = useSelector(state => state.status.charStatus);
     const guessLetters = guess.split("");
     const lettersRemaining = Array.from(Array(MAX_WORD_LENGTH - guessLetters.length));
@@ -22,7 +21,6 @@ const Row = ({key, guess, pastGuessStatus}) =>{
                 <Cell key={i} letter={letter} charStatus={pastGuessStatus ? pastGuessStatus[i] : charStatus[i]} />
             )
         )}
-
 
         {lettersRemaining.map((_,i)=>(
             <Cell key={i}  letter={'x'}/>
