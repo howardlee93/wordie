@@ -77,7 +77,6 @@ const Keyboard = ()=>{
     }
 
     return(
-        <div>
             <div>
             <div className="flex justify-center mb-1">
                 {['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'].map((key) => (
@@ -94,7 +93,7 @@ const Keyboard = ()=>{
                     letter={key}/>
                 ))} 
             </div>
-             <div className="flex justify-center">
+             <div className="flex justify-center mb-3">
                 <Key letter="ENTER" onClick={onClick}>
                     <p>ENTER</p>
                 </Key>
@@ -108,7 +107,6 @@ const Keyboard = ()=>{
                 </Key>      
             </div>
             </div>
-        </div>
     )
 
 };
