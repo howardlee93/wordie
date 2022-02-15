@@ -7,7 +7,7 @@ export const wordSlice = createSlice({
     name:'word',
     
     initialState:{
-        answer: "hello", //getAnswer(),//
+        answer: getAnswer(),// "hello",
         guess:"",
         correct: false,
         numGuesses: 0,
