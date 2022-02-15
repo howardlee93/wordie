@@ -13,7 +13,7 @@ const Keyboard = (props)=>{
     const dispatch = useDispatch();
 
     const onEnter = ()=>{
-        if(pastGuesses.length <= MAX_GUESSES){
+        if(pastGuesses.length < MAX_GUESSES){
             console.log('enter guess');
             if(checkValidGuess(guess) === true){
                 dispatch(addCharStatus());
@@ -22,6 +22,8 @@ const Keyboard = (props)=>{
             }else{
                 alert('not a valid word');
             };
+        }else if(pastGuesses.length < MAX_GUESSES){
+            dispatch(addCharStatus());
         }
           
     }

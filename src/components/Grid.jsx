@@ -11,10 +11,10 @@ const Grid =() =>{
     const pastGuesses = useSelector(state => state.word.pastGuesses);
     const pastGuessesStatus = useSelector(state => state.status.pastGuessesStatus);
 
-    const numGuessesLeft = MAX_GUESSES - pastGuesses.length -1;
+    const numGuessesLeft = MAX_GUESSES - pastGuesses.length; // -1
 
     useEffect(()=>{
-
+        console.log(numGuessesLeft)
     },[guess, answer, pastGuesses]) // charStatus
 
     return(
@@ -22,12 +22,14 @@ const Grid =() =>{
         {guess === answer ? <h1><b>Good job!</b></h1> : <h1> Try again!</h1>}
         <div className="pb-6">            
 
-            {pastGuesses && numGuessesLeft <= 5 ? pastGuesses.map((guess, i) =>(
+            {pastGuesses && numGuessesLeft < 5 ? pastGuesses.map((guess, i) =>(
                 <Row key={i} guess={guess} pastGuessStatus={pastGuessesStatus[i]}/>
             )) : ("")}
-            
-             <Row guess={guess} />
-             {Array.from(new Array(numGuessesLeft)).map((_,i)=>(
+
+
+            {pastGuesses < 5 && numGuessesLeft > 0 ? <Row guess={guess} /> : ("") }
+             {/* <Row guess={guess} /> */}
+             {Array.from(new Array(numGuessesLeft - 1) ).map((_,i)=>(
                  <EmptyRow key={i}/>
              ))}
         </div>
