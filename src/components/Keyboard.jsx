@@ -18,13 +18,16 @@ const Keyboard = ()=>{
             if(checkValidGuess(guess) === true){
                 dispatch(addCharStatus());
                 dispatch(addGuess());
+                if( answer === guess){
+                    alert(`game ended! You have won`);
+                }
                 // console.log(getCharStatus(answer, guess))
             }else{
                 alert('not a valid word');
             }; 
         }else{ //if(pastGuesses.length === MAX_GUESSES)
             dispatch(addCharStatus());
-            alert(`game ended! You have ${answer === guess ? 'won' : 'lost' }`)
+            alert(`game ended! You have ${answer === pastGuesses[pastGuesses.length -1] ? 'won' : 'lost' }`)
         }
     }
 
