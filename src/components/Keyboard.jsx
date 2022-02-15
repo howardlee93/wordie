@@ -5,20 +5,18 @@ import Key from './Key';
 import {MAX_GUESSES, MAX_WORD_LENGTH} from '../constant/constant';
 import { checkValidGuess } from '../util/util';
 import {addCharStatus} from '../redux/statusSlice';
-import {getCharStatus} from '../util/status';
 
 const Keyboard = (props)=>{
 
     const pastGuesses = useSelector(state => state.word.pastGuesses);
     const guess = useSelector(state => state.word.guess);
-    const answer = useSelector(state => state.word.answer);
     const dispatch = useDispatch();
 
     const onEnter = ()=>{
         if(pastGuesses.length <= MAX_GUESSES){
             console.log('enter guess');
             if(checkValidGuess(guess) === true){
-                dispatch(addCharStatus(answer, guess));
+                dispatch(addCharStatus());
                 dispatch(addGuess());
                 // console.log(getCharStatus(answer, guess))
             }else{

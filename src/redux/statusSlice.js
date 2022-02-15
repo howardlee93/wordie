@@ -12,11 +12,11 @@ export const addCharStatus = createAsyncThunk('status/addCharStatus', async(_, {
 export const statusSlice = createSlice({
     name:'status',
     initialState:{
-        // row1:[],
-        // row2:[],
-        // row3:[],
-        // row4:[],
-        // row5:[],
+        row1:[],
+        row2:[],
+        row3:[],
+        row4:[],
+        row5:[],
         charStatus:[]
     },
    
@@ -25,9 +25,14 @@ export const statusSlice = createSlice({
     },
 
     extraReducers: builder => {
-        builder.addCase(addCharStatus.fulfilled, (state, action) =>{
+        builder
+        .addCase(addCharStatus.fulfilled, (state, action) =>{
             let newState = state.charStatus.concat(action.payload);
             state.charStatus = newState;
+        })
+       .addCase(addCharStatus.pending, (state, action) => {
+            state.row1 = state.charStatus
+            state.charStatus = [];
         })
     },
 
